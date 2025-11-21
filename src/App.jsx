@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import Nullish_operator from './components/Nullish_operator'
 import Tables from './components/Tables'
 import Ternary_operator from './components/Ternary_operator'
-import Home_page from './pages/home_page'
+import Home_page from './pages/Home_page'
 import State_Assignment from './pages/State_Assignment'
 
 const App = () => {
