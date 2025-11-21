@@ -93,3 +93,49 @@
   height: 200px;
   width: 200px;
 }
+.button{
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.mainstate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+.objmain{
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.objcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 350px;
+  height: 320px;
+  
+}
+.objimg{
+  padding: 5px;
+}
+.objcontent h3{
+  margin-left: 20px;
+}
+.buttons{
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border: none;
+  font-weight: bolder;
+}
