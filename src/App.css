@@ -89,9 +89,15 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .cardimg img{
   height: 200px;
   width: 200px;
+}
+
+.childcard:hover{
+  transform: scale(0.9);
+  transition: 0.1s;
 }
 .button{
   padding: 10px;
@@ -138,6 +144,7 @@
   padding: 8px;
   border: none;
   font-weight: bolder;
+  cursor: pointer;
 }
 .maincircle{
   margin: 20px;
