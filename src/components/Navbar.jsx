@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const name = "AVENGERS"
-    const links_name = {home:"Home",cast:"Cast",render:"Render",practice:"Practice",states:"States"}
+    const links_name = {home:"Home",cast:"Cast",task:"Task",practice:"Practice",states:"States"}
   return (
     <>
     <div className="navbar">
@@ -16,7 +16,7 @@ const Navbar = () => {
 
             <Link className="linkslist" to="/">{links_name.home}</Link>
             <Link className="linkslist" to="/cast">{links_name.cast}</Link>
-            <Link className="linkslist" to="/render">{links_name.render}</Link>
+            <Link className="linkslist" to="/task">{links_name.task}</Link>
             <Link className="linkslist" to="/practice">{links_name.practice}</Link>
             <Link className="linkslist" to="/states">{links_name.states}</Link>
 

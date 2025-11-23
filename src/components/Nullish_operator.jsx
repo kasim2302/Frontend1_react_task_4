@@ -1,3 +1,4 @@
+import Ternary_operator from "./Ternary_operator"
 
 
 const Nullish_operator = () => {
@@ -12,6 +13,7 @@ const Nullish_operator = () => {
        </div> 
      }
     
+    <Ternary_operator/>
     </>
   )
 }
