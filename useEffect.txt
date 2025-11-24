@@ -1,0 +1,380 @@
+    
+
+Use Effect 24 times:
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+  
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+  
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+  useEffect(()=>{},[])
+
+
+Practiced in Vscode:
+   
+
+import { useEffect, useState } from "react"
+
+const UseEffect = () => {
+    const [data,setData] = useState([])
+     console.log("outter function is running!")
+    const fetchdata = async() =>{
+        try{
+            const res = await fetch("https://dummy-json.mock.beeceptor.com/companies")
+            const result = await res.json()
+            console.log(result)
+            setData(result)
+        }
+        catch(error){
+           console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchdata()
+        console.log("useeffect is running")
+    },[])
+
+  return (
+    <>
+     <div>
+        <h1>
+            {JSON.stringify(data)}
+        </h1>
+        <button className="button" onClick={fetchdata}>Click</button>
+     </div>
+    </>
+   
+  )}
+
+
+export default UseEffect;
+
+  I called this component in Tasks component , you can check there if needed.
+
+Questions and Answers in useEffect()
+
+⭐ 1. What is useEffect ?
+
+useEffect is a hook that lets you run side effects in React.
+
+✔ Simple meaning:
+
+Component render aana piragu run aagum code.
+
+✔ Example:
+
+API call
+
+LocalStorage read/write
+
+Window scrolling detect
+
+Event listener add/remove
+
+Timer, setInterval
+
+DOM update
+
+5. Why useEffect is very important?
+✔ Prevent infinite re-render
+
+If API call outside useEffect pannina component render loop aagidum.
+
+✔ Runs at correct time
+
+Not during render → but after render.
+
+✔ Good performance
+
+React schedule pannum, UI freeze aagathu.
+
+Alternatives to useEffect (very important question!)
+
+React 18/19-la useEffect ku alternatives irukku.
+
+✔ 1. useEffect → regular side effects
+
+Best for:
+
+API call
+
+Timers
+
+Event listeners
+
+LocalStorage
+
+🚫 2. useLayoutEffect
+
+Runs before screen paints
+Used only for:
+
+DOM measurements
+
+Animations
+
+Faster? No
+Better? Only for DOM calculation use cases
+
+✔ 3. useEffectEvent (React 19)
+
+Used for:
+
+Stable callback inside effect
+
+Avoid stale data problems
+
+Still new, but useful.
+
+✔ 4. useMemo / useCallback
+
+Not alternatives but solve different problem:
+
+Memoization
+
+Performance optimization
+
+
+🔵 1. What is useEffect?
+
+A hook that allows you to run side effects after rendering.
+
+🔵 2. What is a side effect in React?
+
+Anything that interacts with outside world, like:
+
+API calls
+
+Timers
+
+Event listeners
+
+LocalStorage
+
+DOM changes
+
+🔵 3. When does useEffect run?
+
+After the component renders (after paint).
+
+🔵 4. What are the 3 common useEffect patterns?
+1️⃣ No dependency
+useEffect(() => {})
+
+
+Runs every render.
+
+2️⃣ Empty dependency
+useEffect(() => {}, [])
+
+
+Runs only once (on mount).
+
+3️⃣ Dependency array
+useEffect(() => {}, [value])
+
+
+Runs when value changes.
+
+🔵 5. Why do we use an empty dependency array?
+
+To run code only once like:
+
+fetch API on initial load
+
+initialize data
+
+🔵 6. What happens if you don’t add dependency array?
+
+The effect runs on every render → can cause:
+
+slow UI
+
+infinite loops
+
+too many API calls
+
+🔵 7. What is the cleanup function in useEffect?
+useEffect(() => {
+  const timer = setInterval(() => {}, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+
+
+Used to cleanup resources when component unmounts.
+
+🔵 8. When does cleanup run?
+
+Three cases:
+
+Before the effect runs again
+
+When dependency changes
+
+When component unmounts
+
+🔵 9. Why do we need cleanup?
+
+To prevent:
+
+memory leaks
+
+duplicate event listeners
+
+duplicate timers
+
+🔵 10. What is an infinite loop in useEffect?
+
+Example:
+
+useEffect(() => {
+  setCount(count + 1);
+});
+
+
+setState → re-render → useEffect → setState → re-render → LOOP.
+
+🔵 11. How to avoid an infinite loop?
+
+Use dependency array properly.
+
+🔵 12. Can we make useEffect async?
+
+No.
+
+But we can do:
+
+useEffect(() => {
+  async function fetchData() {}
+  fetchData();
+}, []);
+
+🔵 13. What is the difference between useEffect and useLayoutEffect?
+useEffect	useLayoutEffect
+Runs after paint	Runs before paint
+Faster	Blocking
+Use it for API, timers	Use it for DOM measurements
+🔵 14. Can dependency array be empty? What does it mean?
+
+Yes.
+Means effect runs only once.
+
+🔵 15. What happens if you put state inside dependency incorrectly?
+
+It will cause unnecessary re-renders.
+
+🔵 16. How do you run useEffect only when a specific state changes?
+useEffect(() => {
+  console.log("user changed");
+}, [user]);
+
+🔵 17. Why useEffect is needed for API calling?
+
+To prevent:
+
+API call running on every render
+
+infinite loop
+
+slow performance
+
+🔵 18. What happens if dependency array changes during render?
+
+Effect re-runs with new values.
+
+🔵 19. Why should we not update state inside dependency change without condition?
+
+Example:
+
+useEffect(() => {
+  setCount(count + 1);
+}, [count]);
+
+
+Causes infinite loop.
+
+🔵 20. What is React’s rule of hooks?
+
+Hooks must be used:
+
+only inside component
+
+only at top level
+
+not inside loops, if else, or functions
+
+⚡ BONUS: TRICK QUESTIONS (Companies love these!)
+❓ 21. Why is this wrong?
+useEffect(() => {
+  fetchUsers();
+});
+
+
+Because no dependency → runs on EVERY render → infinite API calls.
+
+❓ 22. Why this is wrong?
+useEffect(async () => {
+  const data = await fetch();
+}, []);
+
+
+useEffect cannot be async.
+
+❓ 23. Why adding objects/arrays inside dependency is dangerous?
+useEffect(() => {}, [{}])
+
+
+Because objects create new reference every render → effect runs again → infinite loop.
+
+❓ 24. How do you store stable function inside useEffect?
+
+Using useCallback.
+
+❓ 25. What will run first — cleanup or new effect?
+
+Cleanup ALWAYS runs first.
+
+  

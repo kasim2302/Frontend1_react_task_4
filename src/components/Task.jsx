@@ -1,4 +1,5 @@
 import { useState } from "react"
+import UseEffect from "./UseEffect"
 
 const Task = () => {
     const [color,setColor] = useState("black")
@@ -128,6 +129,7 @@ const Task = () => {
           </div>}
           <button className="button" onClick={changeshape}>Change Shape</button>
         </div>
+        <UseEffect/>
     
     </>
   )
